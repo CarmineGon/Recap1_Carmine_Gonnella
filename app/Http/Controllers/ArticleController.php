@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('details');
+    }
+
     public function create(){
         return view('article.create');
     }
@@ -22,5 +27,27 @@ class ArticleController extends Controller
             );
 
         return redirect()->route('homepage')->with('message','Il tuo articolo e stato pubblicato');
+    }
+
+    public function details($title){
+        $article = Article::where('title',$title)->first();
+        return view('article/detail', compact('article'));
+    }
+
+    public function update(Article $article){
+        return view('article/update',compact('article'));
+    }
+
+    public function edit(Request $request, Article $article){
+        $article->title=$request->title;
+        $article->homeprodu=$request->homeprodu;
+        $article->price=$request->price;
+        $article->save();
+        return redirect(route('homepage', compact('article')));
+    }
+
+    public function destroy(Article $article){
+        $article->delete();
+        return redirect(route('homepage'));
     }
 }

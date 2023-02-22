@@ -4,6 +4,6 @@
       <h5 class="card-title">{{$article->title}}</h5>
       <h5 class="card-title">{{$article->homeprodu}}</h5>
       <p class="card-text"> $ {{$article->price}}</p>
-      <a href="#" class="btn btn-success">Dettaglio</a>
+      <a href="{{route('article.detail',['title' => $article -> title])}}" class="btn btn-success">Dettaglio</a>
     </div>
   </div>

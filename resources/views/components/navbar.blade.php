@@ -24,8 +24,20 @@
           </li>
         </li>
         @else
-        <li class="nav-item">
-          <p class="nav-link"> Benvenuto {{Auth::user()->name}}</p>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Benvenuto {{Auth::user()->name}}
+          </a>
+          <ul class="dropdown-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('logout')}}" 
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">Esci</a>
+            </li>
+            <form id="logout-form" action="{{route('logout')}}" method="POST" class="d-none">
+              @csrf
+            </form>
+          </ul>
         </li>
         @endguest
         </ul>
