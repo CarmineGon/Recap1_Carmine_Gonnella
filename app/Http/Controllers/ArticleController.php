@@ -22,7 +22,7 @@ class ArticleController extends Controller
             [
                 'title' => $request ->input('title'),
                 'homeprodu' => $request -> input('homeprodu'),
-                'price' => $request -> input('price')
+                'description' => $request -> input('description')
             ]
             );
 
@@ -41,13 +41,13 @@ class ArticleController extends Controller
     public function edit(Request $request, Article $article){
         $article->title=$request->title;
         $article->homeprodu=$request->homeprodu;
-        $article->price=$request->price;
+        $article->description=$request->description;
         $article->save();
-        return redirect(route('homepage', compact('article')));
+        return redirect(route('homepage', compact('article')))->with('message','Il tuo articolo e stato modificato');
     }
 
     public function destroy(Article $article){
         $article->delete();
-        return redirect(route('homepage'));
+        return redirect(route('homepage'))->with('message','Il tuo articolo e stato eliminato');
     }
 }

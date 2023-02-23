@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,6 @@ Route::get('/article/update/{article}', [ArticleController::class,'update'])->na
 
 Route::put('/article/edit/{article}', [ArticleController::class, 'edit'])->name('article.edit');
 Route::delete('/article/destroy/{article}',[ArticleController::class, 'destroy'])->name('article.delete');
+
+Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
+Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');

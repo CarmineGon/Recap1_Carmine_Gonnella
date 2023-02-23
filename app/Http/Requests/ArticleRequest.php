@@ -24,7 +24,7 @@ class ArticleRequest extends FormRequest
         return [
             'title'=>'required',
             'homeprodu'=>'required',
-            'price'=>'required',
+            'description'=>'required',
         ];
     }
 
@@ -33,7 +33,7 @@ class ArticleRequest extends FormRequest
         return [
             'title.required' => 'Il titolo e obbligatorio',
             'homeprodu.required' => 'La casa produtrice e obbligatorio',
-            'price.required' => 'Il prezzo e obbligatorio',   
+            'description.required' => 'La descrizione e obbligatorio',   
         ];
     }
 }

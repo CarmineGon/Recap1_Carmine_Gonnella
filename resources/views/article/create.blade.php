@@ -1,6 +1,6 @@
 <x-layout>
     <x-header
-    title="Metti in vendita i giochi che non usi più"
+    title="Crea Articoli"
     />
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -31,9 +31,9 @@
                         @enderror
                       </div>
                       <div class="mb-3">
-                        <label class="form-label text-white">Il prezzo</label>
-                        <input type="number" step="1" class="form-control @error('title') is-invalid @enderror" name="price" max="200" value="{{old ('price')}}">
-                        @error('price')
+                        <label class="form-label text-white">Descrizione</label>
+                          <textarea name="description" class="form-control cols="30" rows="10">{{old ('description')}}</textarea>
+                        @error('description')
                           <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                       </div>

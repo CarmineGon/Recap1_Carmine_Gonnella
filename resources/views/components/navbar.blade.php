@@ -13,7 +13,10 @@
             <a class="nav-link active" href="{{route('contacts')}}">Contattaci</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{route('article.create')}}">Metti in vendita</a>
+            <a class="nav-link active" href="{{route('article.create')}}">Crea Articoli</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{route('product.create')}}">Metti in vendita</a>
           </li>
           @guest
           <li class="nav-item">
