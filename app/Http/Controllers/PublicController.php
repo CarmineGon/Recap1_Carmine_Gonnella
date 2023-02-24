@@ -27,4 +27,5 @@ class PublicController extends Controller
         Mail:: to ($email) -> send(new ContactMail($user));
         return redirect(route('homepage')) -> with('message', 'La tua mail e stata inviata');
     }
+
 }

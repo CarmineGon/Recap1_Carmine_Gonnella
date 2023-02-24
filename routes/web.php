@@ -28,5 +28,9 @@ Route::get('/article/update/{article}', [ArticleController::class,'update'])->na
 Route::put('/article/edit/{article}', [ArticleController::class, 'edit'])->name('article.edit');
 Route::delete('/article/destroy/{article}',[ArticleController::class, 'destroy'])->name('article.delete');
 
+Route::get('/shop',[ProductController::class, 'shop'])->name('shop');
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
+Route::get('product/detail/{name}', [ProductController::class,'detail'])->name('product.detail');
+
+Route::get('/user/product/{user}', [ProductController::class,'getProductByUser'])->name('user.product');

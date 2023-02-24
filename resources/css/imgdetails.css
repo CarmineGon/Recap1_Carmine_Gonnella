@@ -1,4 +1,19 @@
+/* Questa e per article */
 .imgdetails{
     height: 300px;
 }
 
+/* questa e per product-card */
+.imgCard
+{
+    height: 100%;
+    background-size: contain;
+}
+
+/* questa e per product-details */
+.imgDetails
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
