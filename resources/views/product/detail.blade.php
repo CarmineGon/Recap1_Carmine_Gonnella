@@ -13,6 +13,9 @@
                     <h5 class="text-white mt-3">{{$product->description}}</h5>
                     <p class="text-white mt-3">$ {{$product->price}}</p>
                     <p class="text-white mt-3">{{$product->user->name}}</p>
+                    @foreach ($product->tags as $tag)
+                        <span class="text-white"># {{$tag->name}}</span>
+                    @endforeach
                     <a href="{{route('shop')}}" class="btn btn-danger mt-5">Torna indietro</a>
                     <a href="#" class="btn btn-success mt-5">Compra</a>
                 </div>

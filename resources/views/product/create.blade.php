@@ -16,6 +16,23 @@
                         <textarea name="description" cols="30" rows="10" class="form-control"></textarea>
                     </div>
                     <div class="mb-3">
+                        <label class="form-label text-white">Categorie</label>
+                        <select name="category_id" id="" class="form-control">
+                            @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-white">Tags</label>
+                        <select name="tags_id[]" class="form-control" multiple>
+                            @foreach ($tags as $tag)
+                                <option value="{{$tag->id}}">{{$tag->name}}</option>
+                            @endforeach
+                        </select>
+                        <small class="text-white">Ctrl + click per impostare più Tag</small>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label text-white">Prezzo</label>
                         <input type="number" class="form-control" name="price">
                     </div>

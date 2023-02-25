@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
@@ -51,15 +52,20 @@ class ProductController extends Controller
         //         'user_id'=>Auth::user()->id
         //     ]
         // );
-        Auth::user()->products()->create(
+        //  dd($request->all());
+        $product = Auth::user()->products()->create(
             [
                 'name' => $request -> input('name'),
                 'description' => $request -> input('description'),
                 'price' => $request -> input('price'),
                 'img' => $request ->has('img') ? $request ->file('img')->store('public/products') : '/img/default.jpg',
+                'category_id' => $request -> input('category_id')
             ]
             );
 
+            foreach ($request ->input('tag_id') as $tag) {
+                $product->tags()->attach($tag);
+            }
             return redirect() -> route('shop');
     }
 
@@ -107,5 +113,9 @@ class ProductController extends Controller
         // $products = $user -> products;
         return view('product/productUser', compact('user'));
 
+    }
+
+    public function productsByCategory(Category $category){
+        return view('product/category', compact('category'));
     }
 }

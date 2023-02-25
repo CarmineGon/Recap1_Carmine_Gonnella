@@ -34,3 +34,5 @@ Route::post('/product/store', [ProductController::class, 'store'])->name('produc
 Route::get('product/detail/{name}', [ProductController::class,'detail'])->name('product.detail');
 
 Route::get('/user/product/{user}', [ProductController::class,'getProductByUser'])->name('user.product');
+
+Route::get('/product/category/{category}' , [ProductController::class, 'productsByCategory'])->name('category.product');
