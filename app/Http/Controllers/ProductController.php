@@ -63,9 +63,12 @@ class ProductController extends Controller
             ]
             );
 
-            foreach ($request ->input('tag_id') as $tag) {
-                $product->tags()->attach($tag);
-            }
+            // foreach ($request ->input('tag_id') as $tag) {
+            //     $product->tags()->attach($tag);
+            // }
+
+                $product->tags()->attach($request->tags);
+
             return redirect() -> route('shop');
     }
 

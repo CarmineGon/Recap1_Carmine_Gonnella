@@ -29,4 +29,12 @@ class Product extends Model
     public function tags(){
         return $this ->belongsToMany(Tag::class);
     }
+
+    public function getFormattedTags(){
+        $tags = '';
+        foreach ($this->tags as $tag) {
+            $tags .= '#' . $tag->name . ' ';
+        }
+        return $tags;
+    }
 }

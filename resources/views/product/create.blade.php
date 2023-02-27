@@ -25,7 +25,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label text-white">Tags</label>
-                        <select name="tags_id[]" class="form-control" multiple>
+                        <select name="tags[]" class="form-control" multiple>
                             @foreach ($tags as $tag)
                                 <option value="{{$tag->id}}">{{$tag->name}}</option>
                             @endforeach
